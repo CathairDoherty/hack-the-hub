@@ -2,6 +2,7 @@
 
 namespace HackTheHub\Custard;
 
+use HackTheHub\Leaves\EventBrite;
 use HackTheHub\Models\Event\Category;
 use Rhubarb\Stem\Custard\DemoDataSeederInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,6 +12,7 @@ class HackTheHubCustard implements DemoDataSeederInterface
     public function seedData(OutputInterface $output)
     {
         $this->importCategories();
+        $this->importEvents();
     }
 
     public function importCategories()
@@ -60,5 +62,10 @@ class HackTheHubCustard implements DemoDataSeederInterface
         foreach($categories as $key => $category) {
             $createCategory($key, $category);
         }
+    }
+
+    public function importEvents()
+    {
+        new EventBrite();
     }
 }
