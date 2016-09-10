@@ -63,6 +63,35 @@ class IndexView extends View
         </nav>
 
         <script>
+            function doExtend() {
+                document.getElementById("menu").style.transition = "1s";
+                document.getElementById("menu").style.width = "100%";
+                document.getElementById("user-settings").style.display = "inline-block";
+                //hide these elements
+                document.getElementById("hideOnExtend").style.display = "none";
+                document.getElementById("side-close").style.display = "none";
+                document.getElementById("full-close").style.display = "inline";
+
+            }
+
+            function doCollapse() {
+                document.getElementById("menu").style.transition = "1s";
+                document.getElementById("menu").style.width = "256px";
+                document.getElementById("user-settings").style.display = "none";
+                //show these
+                document.getElementById("hideOnExtend").style.display = "inline";
+                document.getElementById("full-close").style.display = "none";
+                document.getElementById("side-close").style.display = "inline";
+            }
+
+            function showFullEvent() {
+                document.getElementById("popHide").style.display = "inline";
+            }
+
+            function hideFullEvent() {
+                document.getElementById("popHide").style.display = "none";
+            }
+
             var slideout = new Slideout({
                 'panel': document.getElementById('panel'),
                 'menu': document.getElementById('menu'),

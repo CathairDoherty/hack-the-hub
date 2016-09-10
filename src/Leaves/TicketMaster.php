@@ -36,7 +36,7 @@ class TicketMaster
             {
                 $newEvent = new Event();
                 $newEvent->Name = $event->name;
-                $newEvent->Description = $event->description->text;
+                $newEvent->Description = '';
                 $newEvent->DateTimeStart = $event->dates->start->localDate . ' ' . $event->dates->start->localTime;
                 $newEvent->DateTimeEnd = $event->dates->start->localDate . ' 23:59:59';
                 $newEvent->CategoryID = 7;

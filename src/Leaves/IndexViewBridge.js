@@ -176,7 +176,7 @@ bridge.prototype.attachEvents = function () {
                             if (element.length) {
                                 element[0].parentNode.removeChild(element[0]);
                             }
-                            var bubble = new Overlay(pos, '<div class="popup"> <h1 onClick="showFullEvent()" style="cursor:pointer;">EVENT TITLE</h1> <div id="popHide"> <p>EVENT DETAILS WILL GO HERE</p> <button class="poputButton">Buy Ticket</button> <br> <br> <button class="poputButton">Get Directions</button> <br> <br> <button class="close" onClick="hideFullEvent()">close</button> </div> </div>');
+                            var bubble = new Overlay(pos, '<div class="popup"> <h1 onClick="showFullEvent()" style="cursor:pointer;">'+value.Name+'</h1> <div id="popHide"> <p>'+value.Description+'</p> <a href='+value.TicketLink+' class="poputButton" style="text-decoration: none">Buy Ticket</a> <br> <br> <button class="poputButton">Get Directions</button> <br> <br> <button class="close" onClick="hideFullEvent()">close</button> </div> </div>');
                             bubble.setMap(marker.getMap());
                         };
 
