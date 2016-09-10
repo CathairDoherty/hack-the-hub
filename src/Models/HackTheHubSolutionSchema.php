@@ -13,6 +13,9 @@ class HackTheHubSolutionSchema extends SolutionSchema
         parent::__construct();
         $this->addModel('Event', Event::class, 1.5);
         $this->addModel('Category', Category::class, 1);
+        $this->addModel('HTHUser', Category::class, 1);
+        $this->addModel('Client', Category::class, 1);
+        $this->addModel('Organizer', Category::class, 1);
     }
 
     protected function defineRelationships()
