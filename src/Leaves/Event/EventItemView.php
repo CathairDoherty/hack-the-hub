@@ -39,14 +39,21 @@ class EventItemView extends CrudView
 
     protected function printViewContent()
     {
-        print "<div>Event Location Details<div>";
+        print "<div>Location Details<div>";
         print "&nbsp&nbsp&nbsp&nbspLatitude: " . $this->leaves["Latitude"] . "<br>" ;
         print "&nbsp&nbsp&nbsp&nbspLongitude: " . $this->leaves["Longitude"];
         print "</div>";
-        print "Which category best describes your event?" . $this->leaves["Category"] . "<br>";
-        print "How much is a ticket to your event? £" . $this->leaves["Cost"] . "<br>";
-        print "What is the name of your event?" . $this->leaves["Name"] . "<br>";
-        print "When will your event happen?" . $this->leaves["DateTimeStart"] . "<br>";
+        print "<div>Timing Details<div>";
+        print "&nbsp&nbsp&nbsp&nbspWhen will your event happen?" . $this->leaves["DateTimeStart"] . "<br>";
+        print "&nbsp&nbsp&nbsp&nbspAnd When will it end?" . $this->leaves["DateTimeStart"] . "<br>";
+        print "</div>";
+        print "<div>Pricing<div>";
+        print "&nbsp&nbsp&nbsp&nbspHow much is a ticket to your event? £" . $this->leaves["Cost"] . "<br>";
+        print "</div>";
+        print "<div>General Info<div>";
+        print "&nbsp&nbsp&nbsp&nbspWhich category best describes your event?" . $this->leaves["Category"] . "<br>";
+        print "&nbsp&nbsp&nbsp&nbspWhat is the name of your event?" . $this->leaves["Name"] . "<br>";
+        print "</div>";
         print $this->leaves["Save"];
         print "</div>";
     }
