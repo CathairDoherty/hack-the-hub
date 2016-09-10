@@ -20,10 +20,10 @@ class TicketMaster
 
     public function __construct()
     {
-        $this->test();
+        $this->getEvents();
     }
 
-    public function test()
+    public function getEvents()
     {
         $url = $this->baseUrl . $this->apiKey;
         $response = $this->sendRequest($url, 'get');
