@@ -1,0 +1,145 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.top-nav
+{
+    height: 60px;
+}
+
+.mopen
+{
+    background-color: white;
+    border: none;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.slideout-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    width: 256px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    background-color: #3498db;
+}
+
+.slideout-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+    overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+    display: block;
+}
+
+.map
+{
+    width: 100%;
+    height: 100vw;
+}
+
+.profile
+{
+    margin-top: 10px;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400;
+    color: white;
+}
+
+.mclose
+{
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.side-button
+{
+    width: 100%;
+    height: 50px;
+    background-color: #3498db;
+    font-family: Roboto;
+    font-weight: 400;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.see-me
+{
+    background-color: #2980b9;
+    padding: 10px;
+}
+
+.cat-pick
+{
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 300;
+    color: white;
+}
+
+.settings
+{
+    cursor: pointer;
+}
+
+#full-close
+{
+    display: none;
+}
+
+.user-settings
+{
+    width: 100%;
+    text-align: center;
+}
+
+.settings-title
+{
+    font-family: Roboto;
+    color: white;
+    font-weight: 300;
+}
+
+.settings-detail
+{
+    font-weight: 400;
+    font-family: Roboto;
+    color: white;
+}
+
+.settings-input
+{
+    border: none;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}

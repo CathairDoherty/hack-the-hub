@@ -8,6 +8,7 @@ use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
 use Rhubarb\Stem\Schema\Columns\DateTimeColumn;
 use Rhubarb\Stem\Schema\Columns\DecimalColumn;
 use Rhubarb\Stem\Schema\Columns\ForeignKeyColumn;
+use Rhubarb\Stem\Schema\Columns\IntegerColumn;
 use Rhubarb\Stem\Schema\Columns\MoneyColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 
@@ -20,10 +21,12 @@ class Event extends Model
         $model->addColumn(
             new AutoIncrementColumn('EventID'),
             new StringColumn('Name', 100),
+            new StringColumn('Description', 800),
             new DecimalColumn( 'Latitude', 20, 10 ),
             new DecimalColumn( 'Longitude', 20, 10 ),
             new ForeignKeyColumn('OrganizerID'),
-            new DateTimeColumn('DateTime'),
+            new DateTimeColumn('DateTimeStart'),
+            new DateTimeColumn('DateTimeEnd'),
             new ForeignKeyColumn('CategoryID'),
             new MoneyColumn('Cost'),
             new StringColumn('TicketLink', 200)
@@ -31,5 +34,4 @@ class Event extends Model
 
         return $model;
     }
-
 }
