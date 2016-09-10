@@ -3,6 +3,7 @@
 namespace HackTheHub;
 
 
+use HackTheHub\Custard\HackTheHubCustard;
 use HackTheHub\Layouts\DefaultLayout;
 use HackTheHub\Leaves\Index;
 use HackTheHub\LoginProviders\HackTheHubLoginProvider;
@@ -14,6 +15,7 @@ use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\LeafModule;
 use Rhubarb\Scaffolds\AuthenticationWithRoles\AuthenticationWithRolesModule;
+use Rhubarb\Stem\Custard\SeedDemoDataCommand;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
@@ -61,6 +63,8 @@ class HackTheHub extends Application
 
     public function getCustardCommands()
     {
+        SeedDemoDataCommand::registerDemoDataSeeder(new HackTheHubCustard(''));
+
         return parent::getCustardCommands();
     }
 }
