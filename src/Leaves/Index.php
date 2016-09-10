@@ -2,8 +2,8 @@
 
 namespace HackTheHub\Leaves;
 
+use HackTheHub\Models\Event\Event;
 use Rhubarb\Leaf\Leaves\Leaf;
-use Rhubarb\Leaf\Leaves\LeafModel;
 
 class Index extends Leaf
 {
@@ -14,6 +14,21 @@ class Index extends Leaf
 
     protected function createModel()
     {
-        return new LeafModel();
+        $model = new IndexModel();
+
+        $model->getEventsEvent->attachHandler(function(){
+            $events = [];
+
+            foreach(Event::find() as $event) {
+                $eventClass = new \stdClass();
+                $eventClass->Latitude = $event->Latitude;
+                $eventClass->Longitude = $event->Longitude;
+                $events[] = $eventClass;
+            }
+
+            return $events;
+        });
+
+        return $model;
     }
 }

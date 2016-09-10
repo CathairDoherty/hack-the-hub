@@ -56,7 +56,7 @@ class HackTheHub extends Application
             [
                 '/api/' => $apiHandler = new RestApiRootHandler(
                     ApiDescriptionResource::class, [
-                        'events/' => new RestCollectionHandler(EventResource::class)
+                        'events' => new RestCollectionHandler(EventResource::class)
                     ]
                 ),
                 "/" => new ClassMappedUrlHandler(Index::class, [

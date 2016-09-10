@@ -10,4 +10,15 @@ class EventResource extends ModelRestResource
     {
         return 'Event';
     }
+
+    protected function getSummaryColumns()
+    {
+        $columns = parent::getSummaryColumns();
+        $columns['Latitude'] = 'Latitude';
+        $columns['Longitude'] = 'Longitude';
+
+        return $columns;
+    }
+
+
 }
