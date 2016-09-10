@@ -23,4 +23,55 @@ class Category extends Model
         return $schema;
     }
 
+    public static function checkRecords($oldVersion, $newVersion)
+    {
+        $createCategory = function($name, $subCategories) {
+            $parentCategory = new Category();
+            $parentCategory->Name = $name;
+            $parentCategory->save();
+
+            foreach($subCategories as $category) {
+                $subCategory = new Category();
+                $subCategory->ParentCategoryID = $parentCategory->UniqueIdentifier;
+                $subCategory->
+            }
+        };
+        if ($oldVersion <= 1 && $newVersion >= 1) {
+            $categories = [
+                'Food' => [
+                    'Mexican',
+                    'Italian',
+                    'Spanish',
+                    'Chinese',
+                    'Indian'
+                ],
+                'Music' => [
+                    'Blues',
+                    'Country',
+                    'Hip hop',
+                    'Jazz',
+                    'Pop',
+                    'Reggae',
+                    'R&B',
+                    'Rock',
+                    'Alternative',
+                    'Metal',
+                    'Punk'
+                ],
+                'Sport' => [
+                    'Soccer',
+                    'Football',
+                    'Gaelic',
+                    'Hurling',
+                    'Rugby'
+                ]
+            ];
+
+            foreach($categories as $key => $category) {
+                $createCategory($key, $category);
+            }
+        }
+    }
+
+
 }
