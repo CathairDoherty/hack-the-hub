@@ -2,9 +2,10 @@
 
 namespace HackTheHub\Leaves\Event;
 
+use Rhubarb\Leaf\Crud\Leaves\CrudLeaf;
 use Rhubarb\Leaf\Crud\Leaves\ModelBoundLeaf;
 
-class EventItem extends ModelBoundLeaf
+class EventItem extends CrudLeaf
 {
     protected function getViewClass()
     {
@@ -14,7 +15,7 @@ class EventItem extends ModelBoundLeaf
     protected function createModel()
     {
         $model = new EventItemModel();
-
         return $model;
     }
+    
 }
