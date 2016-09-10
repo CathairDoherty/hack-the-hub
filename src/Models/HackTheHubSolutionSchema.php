@@ -16,14 +16,10 @@ class HackTheHubSolutionSchema extends SolutionSchema
         $this->addModel('Client', Client::class, 1);
         $this->addModel('Organizer', Organizer::class, 1);
         $this->addModel('Event', Event::class, 1.5);
-<<<<<<< HEAD
-        $this->addModel('Category', Category::class, 1);
-=======
         $this->addModel('Category', Category::class, 1.2);
         $this->addModel('HTHUser', Category::class, 1);
         $this->addModel('Client', Category::class, 1);
         $this->addModel('Organizer', Category::class, 1);
->>>>>>> 5a80821b19e48690d9aba47994e7a00f814dda3c
     }
 
     protected function defineRelationships()
