@@ -17,7 +17,7 @@ class EventItemView extends CrudView
         $lat = new TextBox("Latitude");
         $long = new TextBox("Longitude");
         $name = new TextBox("Name");
-        $date = new TextBox("DateTime");
+        $date = new TextBox("DateTimeStart");
         $category = new DropDown("Category");
         $categories = Category::find();
         $categoriesList = [];
@@ -46,7 +46,7 @@ class EventItemView extends CrudView
         print "Which category best describes your event?" . $this->leaves["Category"] . "<br>";
         print "How much is a ticket to your event? £" . $this->leaves["Cost"] . "<br>";
         print "What is the name of your event?" . $this->leaves["Name"] . "<br>";
-        print "When will your event happen?" . $this->leaves["DateTime"] . "<br>";
+        print "When will your event happen?" . $this->leaves["DateTimeStart"] . "<br>";
         print $this->leaves["Save"];
         print "</div>";
     }
