@@ -33,7 +33,8 @@ class Category extends Model
             foreach($subCategories as $category) {
                 $subCategory = new Category();
                 $subCategory->ParentCategoryID = $parentCategory->UniqueIdentifier;
-                $subCategory->
+                $subCategory->Name = $category;
+                $subCategory->save();
             }
         };
         if ($oldVersion <= 1 && $newVersion >= 1) {
