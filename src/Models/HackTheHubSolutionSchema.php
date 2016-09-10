@@ -2,10 +2,12 @@
 
 namespace HackTheHub\Models;
 
+use HackTheHub\Leaves\Event\EventItemModel;
 use HackTheHub\Models\Event\Category;
 use HackTheHub\Models\Event\Event;
 use HackTheHub\Models\User\Client;
 use HackTheHub\Models\User\Organizer;
+use Rhubarb\Scaffolds\Authentication\User;
 use Rhubarb\Stem\Schema\SolutionSchema;
 
 class HackTheHubSolutionSchema extends SolutionSchema
@@ -15,11 +17,9 @@ class HackTheHubSolutionSchema extends SolutionSchema
         parent::__construct();
         $this->addModel('Client', Client::class, 1);
         $this->addModel('Organizer', Organizer::class, 1);
-        $this->addModel('Event', Event::class, 1.5);
+        $this->addModel('Event', Event::class, 1.8);
         $this->addModel('Category', Category::class, 1.2);
-        $this->addModel('HTHUser', Category::class, 1);
-        $this->addModel('Client', Category::class, 1);
-        $this->addModel('Organizer', Category::class, 1);
+        $this->addModel('User', User::class, 1);
     }
 
     protected function defineRelationships()
@@ -32,7 +32,6 @@ class HackTheHubSolutionSchema extends SolutionSchema
                 ],
             ]
         );
-
         $this->declareOneToOneRelationships(
             [
                 'User' => [

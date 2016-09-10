@@ -77,6 +77,7 @@ class EventBrite
                 $newEvent->DateTimeEnd = str_replace('T', ' ', $event->end->local);
                 $newEvent->CategoryID = $categoryID;
                 $newEvent->TicketLink = $event->url;
+                $newEvent->Cost = ((rand(1, 10)*5 - 1) + ((rand(0,1)==1) ? 0.95 : 0.99));
 
                 $location = $this->getLatAndLong($event->venue_id);
                 $newEvent->Latitude = $location['lat'];
