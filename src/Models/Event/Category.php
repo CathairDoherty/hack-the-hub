@@ -22,5 +22,4 @@ class Category extends Model
 
         return $schema;
     }
-
 }
