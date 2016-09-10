@@ -6,6 +6,15 @@ bridge.prototype = new window.rhubarb.viewBridgeClasses.ViewBridge();
 bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function () {
+
+    var markersArray = [];
+    function clearOverlays() {
+        for (var i = 0; i < markersArray.length; i++ ) {
+            markersArray[i].setMap(null);
+        }
+        markersArray.length = 0;
+    }
+
     var welcomescreen_slides = [
         {
             id: 'slide0',
@@ -44,17 +53,31 @@ bridge.prototype.attachEvents = function () {
         'tolerance': 70
     });
 
-    this.raiseServerEvent('getEvents', function(data) {
-        debugger;
-        if (data.length === 0) {
-            if (console.error) {
-                console.error('We have no location data');
+    var self = this;
+
+    $('.category-filter').change(function() {
+        
+        var selected = [];
+        $('.category-filter').each(function(){
+            if($(this).is(':checked')) {
+                selected.push($(this).data('id'))
             }
-            return false;
-        }
-        var markersArray = [];
-        $.each(data, function (key, value) {
-            try {
+        });
+        refreshMarkers(selected);
+    });
+
+    refreshMarkers([]);
+    function refreshMarkers(selectedVals) {
+        self.raiseServerEvent('getEvents', selectedVals, function(data) {
+            clearOverlays();
+            if (data.length === 0) {
+                if (console.error) {
+                    console.error('We have no location data');
+                }
+                return false;
+            }
+            $.each(data, function (key, value) {
+                try {
                     if (value.Latitude && value.Longitude) {
 
                         markerUrl = options.marker;
@@ -73,16 +96,15 @@ bridge.prototype.attachEvents = function () {
                             tweetText = '',
                             onclick;
                         markersArray.push(marker);
+                    }
                 }
-            }
-            catch( ex )
-            {
-                console.log( ex );
-            }
+                catch( ex )
+                {
+                    console.log( ex );
+                }
+            });
         });
-    });
-
-
+    }
 };
 
 window.rhubarb.viewBridgeClasses.IndexViewBridge = bridge;

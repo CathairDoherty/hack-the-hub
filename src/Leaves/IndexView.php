@@ -2,10 +2,10 @@
 
 namespace HackTheHub\Leaves;
 
+use HackTheHub\Models\Event\Category;
 use Rhubarb\Leaf\Leaves\LeafDeploymentPackage;
 use Rhubarb\Leaf\Views\View;
 use Rhubarb\Stem\Filters\Equals;
-use Rhubarb\Stem\Tests\unit\Fixtures\Category;
 
 class IndexView extends View
 {
@@ -28,7 +28,7 @@ class IndexView extends View
                 <button onclick="slideout.close()" class="mclose" id="side-close">X</button>
                 <button onclick="doCollapse()" class="mclose" id="full-close">X</button>
                 <div class="profile">
-                    <img src="pfp.png" style="width:100px; height:100px; border-radius:100%;">
+                    <img src="/static/pfp.png" style="width:100px; height:100px; border-radius:100%;">
                     <p>USERS NAME</p>
                 </div>
                 <div id="hideOnExtend">
@@ -38,6 +38,7 @@ class IndexView extends View
                         <?php
                             foreach(Category::find(new Equals('ParentCategoryID', 0)) as $category) {
                                 print '<input type="checkbox" name="category-' . $category->Name . '" class="category-filter" data-id="' . $category->CategoryID . '"/><span class="cat-pick">' . $category->Name . '</span><br><br>';
+                                unset($category);
                             }
                         ?>
                     </div>
