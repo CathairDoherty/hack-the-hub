@@ -1,6 +1,6 @@
 <?php
 
-namespace SuperCMS;
+namespace HackTheHub;
 
 use Rhubarb\Crown\Exceptions\Handlers\ExceptionHandler;
 use Rhubarb\Crown\Logging\Log;

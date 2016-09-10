@@ -9,6 +9,8 @@
     }
   },
   "require": {
+    "rhubarbphp/scaffold-authentication": "^1.0",
+    "rhubarbphp/scaffold-authentication-with-roles": "dev-master",
     "rhubarbphp/module-patterns": "dev-develop",
     "rhubarbphp/module-stem": "1.2.2",
     "rhubarbphp/module-leaf": "*",

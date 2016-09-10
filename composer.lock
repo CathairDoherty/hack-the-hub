@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5fc430400ae1ec43d10aabb8a0d479c",
+    "hash": "bb296a9bd30159ffeadfd8678196beb6",
     "packages": [
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -558,6 +558,92 @@
             "time": "2016-09-09 15:17:01"
         },
         {
+            "name": "rhubarbphp/scaffold-authentication",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RhubarbPHP/Scaffold.Authentication.git",
+                "reference": "10a2056e8a7c657f60248b0115f55a79817de976"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RhubarbPHP/Scaffold.Authentication/zipball/10a2056e8a7c657f60248b0115f55a79817de976",
+                "reference": "10a2056e8a7c657f60248b0115f55a79817de976",
+                "shasum": ""
+            },
+            "require": {
+                "rhubarbphp/module-leaf": "*",
+                "rhubarbphp/module-stem": "*",
+                "rhubarbphp/rhubarb": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rhubarb\\Scaffolds\\Authentication\\": "src/",
+                    "Rhubarb\\Scaffolds\\Authentication\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Provides some an out of the box solution for login and authentication.",
+            "homepage": "http://www.rhubarbphp.com/",
+            "keywords": [
+                "Authentication",
+                "framework",
+                "php",
+                "rhubarb"
+            ],
+            "time": "2016-08-30 16:05:09"
+        },
+        {
+            "name": "rhubarbphp/scaffold-authentication-with-roles",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RhubarbPHP/Scaffold.AuthenticationWithRoles.git",
+                "reference": "e4fa4e89c1fe26be061ae94211dfa56e754eb085"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RhubarbPHP/Scaffold.AuthenticationWithRoles/zipball/e4fa4e89c1fe26be061ae94211dfa56e754eb085",
+                "reference": "e4fa4e89c1fe26be061ae94211dfa56e754eb085",
+                "shasum": ""
+            },
+            "require": {
+                "rhubarbphp/module-stem": "^1.2",
+                "rhubarbphp/rhubarb": "^1.1",
+                "rhubarbphp/scaffold-authentication": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rhubarb\\Scaffolds\\AuthenticationWithRoles\\": "src/",
+                    "Rhubarb\\Scaffolds\\AuthenticationWithRoles\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Extends the basic authentication scaffold with groups and role based permissions.",
+            "homepage": "http://www.rhubarbphp.com/",
+            "keywords": [
+                "Authentication",
+                "framework",
+                "php",
+                "rhubarb"
+            ],
+            "time": "2016-08-11 10:07:22"
+        },
+        {
             "name": "symfony/console",
             "version": "v3.1.4",
             "source": {
@@ -694,6 +780,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "rhubarbphp/scaffold-authentication-with-roles": 20,
         "rhubarbphp/module-patterns": 20,
         "rhubarbphp/module-leaf-common-controls": 20,
         "rhubarbphp/module-leaf-table": 20,

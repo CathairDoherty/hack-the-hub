@@ -5,12 +5,15 @@ namespace HackTheHub;
 
 use HackTheHub\Layouts\DefaultLayout;
 use HackTheHub\Leaves\Index;
+use HackTheHub\LoginProviders\HackTheHubLoginProvider;
+use HackTheHub\Models\HackTheHubSolutionSchema;
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Encryption\Sha512HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\LeafModule;
+use Rhubarb\Scaffolds\AuthenticationWithRoles\AuthenticationWithRolesModule;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
@@ -30,7 +33,7 @@ class HackTheHub extends Application
 
         Repository::setDefaultRepositoryClassName(MySql::class);
 
-        //SolutionSchema::registerSchema('CmsDatabase', SCmsSolutionSchema::class);
+        SolutionSchema::registerSchema('HackTheHubSchema', HackTheHubSolutionSchema::class);
 
         HashProvider::setProviderClassName(Sha512HashProvider::class);
     }
@@ -52,6 +55,7 @@ class HackTheHub extends Application
             new LayoutModule(DefaultLayout::class),
             new StemModule(),
             new LeafModule(),
+            new AuthenticationWithRolesModule(HackTheHubLoginProvider::class, '/admin/'),
         ];
     }
 
