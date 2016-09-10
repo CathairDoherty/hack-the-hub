@@ -1,4 +1,5 @@
 <?php
+namespace HackTheHub\Models\User;
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\MySqlEnumColumn;
 use Rhubarb\Stem\Repositories\MySql\Schema\MySqlModelSchema;
@@ -21,14 +22,14 @@ class Organizer extends Model
 
         $model->addColumn(
             new AutoIncrementColumn('OrganizerID'),
-            new StringColumn('OrganizationName', null),
-            new ForeignKeyColumn('HTHUserID', null),
-            new StringColumn('AddressLine1', null),
-            new StringColumn('AddressLine2', null),
-            new StringColumn('AddressLine3', null),
-            new StringColumn('AddressTown', null),
-            new StringColumn('AddressCity', null),
-            new MySqlEnumColumn('CompanySize', null, ['0-10', '10-20', '20-50', '50-100', '100+'])
+            new StringColumn('OrganizationName', 100),
+            new ForeignKeyColumn('UserID', null),
+            new StringColumn('AddressLine1', 200),
+            new StringColumn('AddressLine2', 200),
+            new StringColumn('AddressLine3', 200),
+            new StringColumn('AddressTown', 200),
+            new StringColumn('AddressCity', 200),
+            new MySqlEnumColumn('CompanySize', 'Please select a company size', ['Please select a company size','0-10', '10-20', '20-50', '50-100', '100+'])
         );
         return $model;
     }
