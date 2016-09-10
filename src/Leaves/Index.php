@@ -32,6 +32,8 @@ class Index extends Leaf
                 $eventClass = new \stdClass();
                 $eventClass->Latitude = $event->Latitude;
                 $eventClass->Longitude = $event->Longitude;
+                $eventClass->Name = $event->Name;
+                $eventClass->MarkerImage = $event->getMarkerImage();
                 $events[] = $eventClass;
             }
 

@@ -55,7 +55,7 @@ body {
 .map
 {
     width: 100%;
-    height: 100vw;
+    height: 89vh;
 }
 
 .profile
@@ -142,4 +142,122 @@ body {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
+}
+
+.user-settings
+{
+    display: none;
+}
+
+.update
+{
+    border: none;
+    color: white;
+    background-color: #2980b9;
+    padding: 10px;
+    font-family: Roboto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.user-login
+{
+    color: white;
+    text-decoration: none;
+}
+
+.user-login:hover
+{
+    text-decoration: underline;
+}
+
+.popup
+{
+    background-color: #3498db;
+    font-family: Roboto;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.poputButton
+{
+    font-family: Roboto;
+    font-weight: 400;
+    border: 3px solid #2980b9;
+    background-color: #3498db;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.poputButton:hover
+{
+    background-color: #2980b9;
+}
+
+#popHide
+{
+    display: none;
+}
+
+.close
+{
+    font-family: Roboto;
+    font-weight: 400;
+    border: 3px solid #2980b9;
+    background-color: #3498db;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.checkbox-custom, .radio-custom {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkbox-custom-label, .radio-custom-label {
+    position: relative;
+}
+
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    background: #e67e22;
+}
+
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    background: #ccc;
+}
+
+
+.checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
+    outline: 1px solid #ddd; /* focus style */
 }

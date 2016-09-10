@@ -7,6 +7,81 @@ bridge.prototype.constructor = bridge;
 
 bridge.prototype.attachEvents = function () {
 
+    function Overlay(position, content, width, height, shadowImg, shadowHeight) {
+        google.maps.OverlayView.apply(this, arguments);
+        this.position = position;
+        this.content = content;
+        this.width = width || 260;
+        this.height = height || 260;
+        this.shadowImg = shadowImg || '';
+        this.shadowHeight = shadowHeight || 100;
+        this.loaded = false;
+    }
+
+    Overlay.prototype = new google.maps.OverlayView();
+    Overlay.prototype.constructor = Overlay;
+
+    Overlay.prototype.onAdd = function () {
+        this.container = document.createElement('DIV');
+        this.container.className = 'gmap-bubble';
+        this.getPanes().floatPane.appendChild(this.container);
+        this.container.style.position = 'absolute';
+        this.container.style.height = this.height;
+        this.container.style.width = this.width;
+        this.container.innerHTML = '<div class="overlay-loading"></div>' +
+            '<div class="overlay-close"><a><img src="' + window.BaseUrl + '/static/images/close-button.png"/></a></div>' +
+            '<div class="overlay-panel"></div>';
+
+        this.contentContainer = this.container.querySelector('.overlay-panel');
+
+        var close = function () {
+            this.onRemove();
+        };
+
+        this.container.querySelector('.overlay-close > a').onmouseup = close.bind(this);
+    };
+
+    Overlay.prototype.draw = function () {
+        if (!this.loaded) {
+            this.contentContainer.innerHTML = this.content;
+        }
+        var pxPos = this.getPoint();
+
+        if(this.container) {
+            this.container.style.left = (pxPos.x - 30) + 'px';
+            this.container.style.top = (pxPos.y + 14) + 'px';
+        }
+
+        if (!this.loaded) {
+            this.panMap();
+            this.loaded = true;
+        }
+    };
+
+    Overlay.prototype.show = function () {
+        this.container.style.display= 'block';
+    };
+
+    Overlay.prototype.hide = function () {
+        this.container.style.display = 'none';
+    };
+
+    Overlay.prototype.onRemove = function () {
+        this.contentContainer.parentNode.removeChild(this.contentContainer);
+        this.contentContainer = null;
+        this.container.parentNode.removeChild(this.container);
+        this.container = null;
+    };
+
+    Overlay.prototype.panMap = function () {
+        var point = this.getPoint();
+        this.getMap().panTo(this.getProjection().fromDivPixelToLatLng(new google.maps.Point(point.x + (this.width / 2 ), point.y + ( this.height / 4))));
+    };
+
+    Overlay.prototype.getPoint = function () {
+        return this.getProjection().fromLatLngToDivPixel(this.position);
+    };
+
     var markersArray = [];
     function clearOverlays() {
         for (var i = 0; i < markersArray.length; i++ ) {
@@ -56,7 +131,7 @@ bridge.prototype.attachEvents = function () {
     var self = this;
 
     $('.category-filter').change(function() {
-        
+
         var selected = [];
         $('.category-filter').each(function(){
             if($(this).is(':checked')) {
@@ -80,7 +155,7 @@ bridge.prototype.attachEvents = function () {
                 try {
                     if (value.Latitude && value.Longitude) {
 
-                        markerUrl = options.marker;
+                        markerUrl = value.MarkerImage;
 
                         var pos = new google.maps.LatLng(value.Latitude, value.Longitude);
                         var icon = new google.maps.MarkerImage(markerUrl, null, null, null, new google.maps.Size(34, 34));
@@ -95,7 +170,19 @@ bridge.prototype.attachEvents = function () {
                             tweetImage = '',
                             tweetText = '',
                             onclick;
+
+                        var onClick = function () {
+                            var element = document.getElementsByClassName('gmap-bubble');
+                            if (element.length) {
+                                element[0].parentNode.removeChild(element[0]);
+                            }
+                            var bubble = new Overlay(pos, '<div class="popup"> <h1 onClick="showFullEvent()" style="cursor:pointer;">EVENT TITLE</h1> <div id="popHide"> <p>EVENT DETAILS WILL GO HERE</p> <button class="poputButton">Buy Ticket</button> <br> <br> <button class="poputButton">Get Directions</button> <br> <br> <button class="close" onClick="hideFullEvent()">close</button> </div> </div>');
+                            bubble.setMap(marker.getMap());
+                        };
+
                         markersArray.push(marker);
+
+                        google.maps.event.addListener(marker, 'click', onClick);
                     }
                 }
                 catch( ex )

@@ -2,6 +2,7 @@
 
 namespace HackTheHub\Leaves\Event;
 
+use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Leaf\Crud\Leaves\CrudLeaf;
 use Rhubarb\Leaf\Crud\Leaves\ModelBoundLeaf;
 
