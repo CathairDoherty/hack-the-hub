@@ -8,6 +8,8 @@ class IndexView extends View
 {
     protected function printViewContent()
     {
-        print 'Its working!';
+        ?>
+
+        <?php
     }
 }

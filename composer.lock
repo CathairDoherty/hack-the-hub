@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bb296a9bd30159ffeadfd8678196beb6",
+    "hash": "0a47930f3f3caca70560b62584224fcc",
     "packages": [
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -459,6 +459,39 @@
             "time": "2016-08-17 08:46:39"
         },
         {
+            "name": "rhubarbphp/module-restapi",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RhubarbPHP/Module.RestApi.git",
+                "reference": "226591408a0a3a3bb56538f624e56b1e4c9e474c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RhubarbPHP/Module.RestApi/zipball/226591408a0a3a3bb56538f624e56b1e4c9e474c",
+                "reference": "226591408a0a3a3bb56538f624e56b1e4c9e474c",
+                "shasum": ""
+            },
+            "require": {
+                "rhubarbphp/module-leaf": "*",
+                "rhubarbphp/module-stem": "^1.0.0",
+                "rhubarbphp/rhubarb": "^1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rhubarb\\RestApi\\": "src/",
+                    "Rhubarb\\RestApi\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2.0"
+            ],
+            "description": "An module for building ReSTful API services",
+            "time": "2016-08-17 13:24:21"
+        },
+        {
             "name": "rhubarbphp/module-stem",
             "version": "1.2.2",
             "source": {
@@ -784,7 +817,8 @@
         "rhubarbphp/module-patterns": 20,
         "rhubarbphp/module-leaf-common-controls": 20,
         "rhubarbphp/module-leaf-table": 20,
-        "rhubarbphp/rhubarb": 20
+        "rhubarbphp/rhubarb": 20,
+        "rhubarbphp/module-restapi": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

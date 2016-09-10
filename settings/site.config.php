@@ -14,7 +14,7 @@ $dbSettings->password = "";
 $dbSettings->database = "vagrant";
 
 // Add a PHP logger
-Log::attachLog( new PhpLog( Log::ERROR_LEVEL ) );
+Log::attachLog( new PhpLog( Log::ALL ) );
 
 // Switch off exception trapping. You should have this on in the production environment.
 ExceptionHandler::disableExceptionTrapping();
