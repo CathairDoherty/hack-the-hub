@@ -22,7 +22,7 @@ class Organizer extends Model
         $model->addColumn(
             new AutoIncrementColumn('OrganizerID'),
             new StringColumn('OrganizationName', null),
-            new ForeignKeyColumn('UserID', null),
+            new ForeignKeyColumn('HTHUserID', null),
             new StringColumn('AddressLine1', null),
             new StringColumn('AddressLine2', null),
             new StringColumn('AddressLine3', null),

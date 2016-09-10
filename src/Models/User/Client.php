@@ -16,7 +16,7 @@ class Client extends Model
             new AutoIncrementColumn('ClientID'),
             new MySqlEnumColumn('UserType', 'Client', ['Client', 'Organizer'] ),
             new BooleanColumn('DemoPreference', false),
-            new ForeignKeyColumn('UserID', null)
+            new ForeignKeyColumn('HTHUserID', null)
         );
         return $model;
     }
