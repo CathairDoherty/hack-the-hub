@@ -2,6 +2,7 @@
 
 namespace HackTheHub\Leaves\Event;
 
+use HackTheHub\Models\Event\Event;
 use Rhubarb\Leaf\Controls\Common\Buttons\Button;
 use Rhubarb\Leaf\Views\View;
 
@@ -14,6 +15,28 @@ class EventCollectionView extends View
     
     protected function printViewContent()
     {
-        print "Event collection <br> <a href='add/'>Add an Event: </a>";
+        print "<style>@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
+body{
+    margin: 0px;
+    padding:0px;
+    font-family: Roboto;
+    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    background-color: #3498db;
+}
+</style>";
+
+        print "<center>";
+        print "<a href='add/'>Want to add your own event? click here!</a><br><br>";
+        $events = Event::find();
+        foreach ($events as $event){
+            print $event->Name . "<br>";
+            print $event->DateTimeStart . "<br>";
+            print "£".$event->Cost . "<br>";
+            print "<a href='$event->TicketLink'>Get tickets or sign up</a>" . "<br><br>";
+        }
+        print "</center>";
     }
 }
